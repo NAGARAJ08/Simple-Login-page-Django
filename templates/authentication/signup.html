@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<style>
+/*body {font-family: Arial, Helvetica, sans-serif;}
+* {box-sizing: border-box;
+overflow:hidden}
+*/
+body{
+
+  padding: 0;
+  margin: -20;
+
+ }
+/* Full-width input fields */
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 8px;
+  margin: 2px 0 15px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+input[type=text]:focus, input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+
+/* Set a style for all buttons */
+button {
+  background-color: #04AA6D;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+
+button:hover {
+  opacity:1;
+}
+
+/* Extra styles for the cancel button */
+.cancelbtn {
+  padding: 14px 20px;
+  background-color: #f44336;
+}
+
+/* Float cancel and signup buttons and add an equal width */
+.cancelbtn, .signupbtn {
+  float: left;
+  width: 50%;
+}
+
+/* Add padding to container elements */
+.container {
+  padding-top:0px;
+  padding-left: 450px;
+  padding-right: 450px;
+}
+
+/* Clear floats */
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+/* Change styles for cancel button and signup button on extra small screens */
+@media screen and (max-width: 300px) {
+  .cancelbtn, .signupbtn {
+     width: 100%;
+  }
+}
+</style>
+<head>
+    <meta charset="UTF-8">
+    <title>SignUp</title>
+</head>
+<body>
+
+{% for message in messages %}
+<div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+    <strong>Message:</strong>{{ message }}
+    <button type="button" class="close" data-dismiss="alert" aria-label="close">
+    <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+{% endfor %}
+<form action="/signup" style="border:1px solid #ccc" method="post">
+  {% csrf_token %}
+  <div class="container">
+    <h1 align="center">Sign Up</h1>
+    <label><b>User Name</b></label>
+    <input type="text" placeholder="Enter Username" id="username" name="username" required>
+
+    <label><b>First Name</b></label>
+    <input type="text" placeholder="Enter firstname" id="firstname" name="firstname" required>
+    <label><b>Last Name</b></label>
+    <input type="text" placeholder="Enter lastname" id="lastname" name="lastname" required>
+  <label><b>Email</b></label>
+    <input type="text" placeholder="Enter Email" name="email" required>
+
+    <label><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" name="psw" required>
+
+    <label><b>Repeat Password</b></label>
+    <input type="password" placeholder="Confirm Password" name="psw-repeat" required>
+
+    <label>
+      <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+    </label>
+
+    <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
+
+    <div class="clearfix">
+      <button type="button" class="cancelbtn">Cancel</button>
+      <button type="submit" class="signupbtn">Sign Up</button>
+    </div>
+  </div>
+</form>
+</body>
+</html>

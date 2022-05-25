@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+body,h2 {font-family: "Raleway", sans-serif}
+body, html {height: 100%}
+.btn {
+  border: none;
+  color: white;
+  padding: 14px 28px;
+  font-size: 16px;
+  cursor: pointer;
+
+}
+
+.info {background-color: #2196F3;} /* Blue */
+.info:hover {background: #0b7dda;}
+
+.success {background-color: #04AA6D;} /* Green */
+.success:hover {background-color: #46a049;}
+
+.end{
+margin-top:0px;
+float:right;
+}
+.danger {background-color: red;} /* Green */
+.danger:hover {background-color: #46a049;}
+a{
+ text-decoration: none;
+ color:white;
+}
+.Main_container{
+    margin-left:550px;
+    margin-top:200px;
+}
+.para{
+    position: relative;
+     margin-left:70px;
+    margin-top:30px;
+}
+.logout{
+float:left;
+
+}
+</style>
+
+<head>
+    <meta charset="UTF-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <title>Authentication</title>
+</head>
+<body>
+
+{% for message in messages %}
+<div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+    <strong>Message:</strong>{{ message }}
+    <button type="button" class="close" data-dismiss="alert" aria-label="close">
+    <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+{% endfor %}
+
+ <div class="w3-display-middle">
+    <h2 style="text-align:center">Welocme to Discussion Forum </h2>
+    <hr class="w3-border-grey" style="margin:auto;width:40%">
+
+  </div>
+
+
+{% if user.is_authenticated %}
+<p>
+<div class="logout">
+<h3> Hello {{firstname}}</h3>
+<h4> Login Successful.</h4>
+</div>
+<div class="end"><button type="submit" class="btn danger"><a href="/signout">SignOut</a></button></div>
+</p>
+
+{% else %}
+
+<div>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tincidunt lobortis feugiat vivamus at. Eget arcu dictum varius duis at consectetur lorem donec massa. Nec ultrices dui sapien eget mi proin sed libero. Euismod in pellentesque massa placerat duis ultricies lacus. In dictum non consectetur a erat nam at lectus. Condimentum mattis pellentesque id nibh tortor. Aliquet lectus proin nibh nisl condimentum id venenatis a. Blandit libero volutpat sed cras. Lorem ipsum dolor sit amet consectetur adipiscing elit. Ut porttitor leo a diam. Erat pellentesque adipiscing commodo elit at.</p>
+</div>
+<div class="Main_container">
+<button type="submit" class="btn info"><a href="/signup">SignUp</a></button>
+<button type="submit" class="btn success"><a href="/signin">SignIn</a></button>
+</div>
+{% endif %}
+
+
+</body>
+</html>
