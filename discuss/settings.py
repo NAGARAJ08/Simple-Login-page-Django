@@ -24,11 +24,6 @@ EMAIL_PORT = EMAIL_PORT
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-l&nis-(tjau19n9w-5grdx=laimdh^@7y@q2)v^-o9^l39+5bv'
-
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
 
 ALLOWED_HOSTS = []
 
